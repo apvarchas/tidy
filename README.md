@@ -28,5 +28,18 @@ folder/
 
 ## Status
 Stable and usable
-## Preview
-Run the tool on any messy folder to automatically organize files into categories.
+## Example
+
+Input files:
+a.jpg
+b.pdf
+c.mp4
+notes.txt
+song.mp3
+
+After running tidy:
+Images/a.jpg
+Documents/b.pdf
+Videos/c.mp4
+Documents/notes.txt
+Audio/song.mp3
