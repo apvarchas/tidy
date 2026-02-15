@@ -7,8 +7,11 @@ A simple command line tool that organizes files in a folder by type.
 - Works on any directory
 - Safe: never deletes files
 
+## Installation
+pip install .
+
 ## Usage
-python tidy.py /path/to/folder
+tidy /path/to/folder
 
 ## Example
 Before:
