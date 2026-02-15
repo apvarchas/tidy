@@ -37,7 +37,8 @@ def organize(folder):
     print("Organization complete")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] in ["-h", "--help"]:
         print("Usage: python tidy.py <folder_path>")
+        print("Example: python tidy.py Downloads")
     else:
         organize(sys.argv[1])
