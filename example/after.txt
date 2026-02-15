@@ -1,0 +1,5 @@
+Images/a.jpg
+Documents/b.pdf
+Videos/c.mp4
+Documents/notes.txt
+Audio/song.mp3
