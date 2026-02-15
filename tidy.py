@@ -15,7 +15,13 @@ def get_category(extension):
             return category
     return "Others"
 
-def organize(folder):
+def organize(folder=None):
+    if folder is None:
+        import sys
+        if len(sys.argv) < 2:
+            print("Usage: tidy <folder_path>")
+            return
+        folder = sys.argv[1]
     if not os.path.isdir(folder):
         print("Invalid folder path")
         return
@@ -37,8 +43,4 @@ def organize(folder):
     print("Organization complete")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2 or sys.argv[1] in ["-h", "--help"]:
-        print("Usage: python tidy.py <folder_path>")
-        print("Example: python tidy.py Downloads")
-    else:
-        organize(sys.argv[1])
+    organize()
