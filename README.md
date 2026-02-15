@@ -25,3 +25,5 @@ folder/
 
 ## Status
 Stable and usable
+## Preview
+Run the tool on any messy folder to automatically organize files into categories.
