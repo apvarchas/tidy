@@ -49,3 +49,8 @@ Documents/b.pdf
 Videos/c.mp4
 Documents/notes.txt
 Audio/song.mp3
+
+Ignored by default:
+.git
+__pycache__
+node_modules
