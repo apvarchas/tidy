@@ -16,6 +16,9 @@ pip install .
 ## Usage
 tidy /path/to/folder
 
+Preview changes without moving files:
+tidy /path/to/folder --dry-run
+
 ## Example
 Before:
 folder/
