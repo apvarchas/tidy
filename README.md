@@ -1,3 +1,6 @@
+![Python](https://img.shields.io/badge/python-3.x-blue)
+![Status](https://img.shields.io/badge/status-stable-success)
+![License](https://img.shields.io/badge/license-MIT-green)
 # tidy
 
 A simple command line tool that organizes files in a folder by type.
