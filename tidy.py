@@ -15,16 +15,18 @@ def get_category(extension):
             return category
     return "Others"
 
-def organize(folder=None):
+def organize(folder=None, dry_run=False):
     if folder is None:
-        import sys
         if len(sys.argv) < 2:
-            print("Usage: tidy <folder_path>")
+            print("Usage: tidy <folder_path> [--dry-run]")
             return
         folder = sys.argv[1]
+
     if not os.path.isdir(folder):
         print("Invalid folder path")
         return
+
+    print("Preview mode ON" if dry_run else "Organizing files...")
 
     for file in os.listdir(folder):
         path = os.path.join(folder, file)
@@ -38,9 +40,19 @@ def organize(folder=None):
         target_dir = os.path.join(folder, category)
         os.makedirs(target_dir, exist_ok=True)
 
-        shutil.move(path, os.path.join(target_dir, file))
+        destination = os.path.join(target_dir, file)
 
-    print("Organization complete")
+        if dry_run:
+            print(f"[DRY RUN] {file} -> {category}")
+        else:
+            try:
+                shutil.move(path, destination)
+                print(f"Moved: {file} -> {category}")
+            except Exception as e:
+                print(f"Skipped: {file} ({e})")
+
+    print("Done")
 
 if __name__ == "__main__":
-    organize()
+    dry = "--dry-run" in sys.argv
+    organize(dry_run=dry)
