@@ -8,6 +8,7 @@ FILE_TYPES = {
     "Videos": [".mp4", ".mkv", ".mov", ".avi"],
     "Audio": [".mp3", ".wav", ".flac"]
 }
+IGNORE_NAMES = {".git", "__pycache__", "node_modules"}
 
 def get_category(extension):
     for category, extensions in FILE_TYPES.items():
@@ -28,11 +29,15 @@ def organize(folder=None, dry_run=False):
 
     print("Preview mode ON" if dry_run else "Organizing files...")
 
-    for file in os.listdir(folder):
-        path = os.path.join(folder, file)
+  for file in os.listdir(folder):
+    if file in IGNORE_NAMES:
+        print(f"Skipped ignored: {file}")
+        continue
 
-        if os.path.isdir(path):
-            continue
+    path = os.path.join(folder, file)
+
+    if os.path.isdir(path):
+        continue
 
         _, ext = os.path.splitext(file)
         category = get_category(ext)
